@@ -76,6 +76,7 @@ class PasswordCheckerTest {
         assertTrue(PasswordChecker.hasSpecialChars("?bla?bla?"));
     }
 
+    // generateValidPW
     @Test
     void generateValidPWShouldGenerateValidPW() {
         assertTrue(PasswordChecker.isValid(PasswordChecker.generateValidPW()));

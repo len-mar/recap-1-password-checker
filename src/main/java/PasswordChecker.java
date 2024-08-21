@@ -65,7 +65,7 @@ public class PasswordChecker {
         // converts matcher to boolean via find()
         return specialChar.matcher(pw).find();
     }
-
+    // generates valid pw of length 12 by concatenating substrings for each criterion
     public static String generateValidPW() {
         // using Apache Commons RandomStringGenerator, generate password of length 12
         // can't be invalid, but is too predictable to be a proper generator function
