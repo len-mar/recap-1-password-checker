@@ -75,4 +75,9 @@ class PasswordCheckerTest {
     void hasSpecialCharsShouldReturnTrueWhenWithQuestionMarks() {
         assertTrue(PasswordChecker.hasSpecialChars("?bla?bla?"));
     }
+
+    @Test
+    void generateValidPWShouldGenerateValidPW() {
+        assertTrue(PasswordChecker.isValid(PasswordChecker.generateValidPW()));
+    }
 }

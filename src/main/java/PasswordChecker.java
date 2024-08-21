@@ -1,3 +1,5 @@
+import org.apache.commons.text.RandomStringGenerator;
+
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
@@ -7,6 +9,8 @@ public class PasswordChecker {
         System.out.println("Checked if '12356789' is valid: " + isValid("12356789"));
         System.out.println("Checked if 'Password' is valid: " + isValid("Password"));
         System.out.println("Checked if 'dajsio12$fAFSfsaf35' is valid: " + isValid("dajsio12$fAFSfsaf35"));
+        String randomPW = generateValidPW();
+        System.out.println("Randomly generated PW: " + randomPW + ". Is valid? " + isValid(randomPW));
     }
 
     // overall pw checker function, calls all util functions
@@ -62,6 +66,25 @@ public class PasswordChecker {
         return specialChar.matcher(pw).find();
     }
 
+    public static String generateValidPW() {
+        // using Apache Commons RandomStringGenerator, generate password of length 12
+        // can't be invalid, but is too predictable to be a proper generator function
+        // would need a few more elements of randomness
+        RandomStringGenerator spec = new RandomStringGenerator.Builder().withinRange(33, 47).build();
+        String special = spec.generate(3);
+        RandomStringGenerator dig = new RandomStringGenerator.Builder().withinRange(48, 57)
+                .build();
+        String digits = dig.generate(3);
 
+        RandomStringGenerator upp = new RandomStringGenerator.Builder().withinRange(65, 90)
+                .build();
+        String upper = upp.generate(3);
+
+        RandomStringGenerator low = new RandomStringGenerator.Builder().withinRange(97, 122)
+                .build();
+        String lower = low.generate(3);
+
+        return upper.concat(special).concat(digits).concat(lower);
+    }
 
 }
