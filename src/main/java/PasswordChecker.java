@@ -6,13 +6,13 @@ public class PasswordChecker {
         System.out.println("Checked if 'hello' is valid: " + isValid("hello"));
         System.out.println("Checked if '12356789' is valid: " + isValid("12356789"));
         System.out.println("Checked if 'Password' is valid: " + isValid("Password"));
-        System.out.println("Checked if 'dajsio12fAFSfsaf35' is valid: " + isValid("dajsio12fAFSfsaf35"));
+        System.out.println("Checked if 'dajsio12$fAFSfsaf35' is valid: " + isValid("dajsio12$fAFSfsaf35"));
     }
 
     // overall pw checker function, calls all util functions
     public static boolean isValid(String pw) {
         return hasMinLength(pw) && containsDigits(pw)
-                && hasUpperAndLower(pw) && isNotCommonPW(pw);
+                && hasUpperAndLower(pw) && isNotCommonPW(pw) && hasSpecialChars(pw);
     }
 
     // checks if pw has minimum length
