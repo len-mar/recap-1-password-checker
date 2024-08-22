@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 public class PasswordChecker {
     public static void main(String[] args) {
+        System.out.println("Hello World");
         System.out.println("Checked if 'hello' is valid: " + isValid("hello"));
         System.out.println("Checked if '12356789' is valid: " + isValid("12356789"));
         System.out.println("Checked if 'Password' is valid: " + isValid("Password"));
